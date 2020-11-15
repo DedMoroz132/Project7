@@ -1,7 +1,7 @@
 #include <stdio.h>
 double a[100][100] = { 0 };
 double g[100][100] = { 0 };
-int i;
+int i,p=1;
 void FindZero(int n)
 {
 	double v;
@@ -13,8 +13,9 @@ void FindZero(int n)
 				{
 					v = a[i][k];
 					a[i][k] = a[j][k];
-					a[j][k] = v;
+					a[j][k] = v;	
 				}
+				p = p * (-1);
 				break;
 			}
 }
@@ -24,6 +25,7 @@ double Gaus(int n)
 	double v;
 	int g = 0;
 	i = 0;
+	p = 1;
 	while (i < n - 1)
 	{
 		FindZero(n);
@@ -47,7 +49,7 @@ double Gaus(int n)
 	{
 		sum = sum * a[i][i];
 	}
-	return sum;
+	return sum*p;
 }
 int main(void) {
 	double sum = 1, b[100] = { 1 }, c[100] = { 1 };
@@ -70,7 +72,7 @@ int main(void) {
 		for (int j = 0; j < n; j++)
 		{
 			for (i = 0; i < n; i++)
-				a[j][i] = b[i];
+				a[i][j] = b[i];
 			c[j] = Gaus(n);
 			for (i = 0; i < n; i++)
 				for (int d = 0; d < n; d++)
