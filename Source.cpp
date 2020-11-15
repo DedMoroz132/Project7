@@ -62,7 +62,7 @@ int main(void) {
 		}
 	}
 	for(i=0;i<n;i++)
-		scanf_s("%fl", b[i]);
+		scanf_s("%lf", &b[i]);
 	sum=Gaus(n);
 		for (i = 0; i < n; i++)
 			for (int j = 0; j < n; j++)
